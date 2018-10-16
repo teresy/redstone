@@ -307,11 +307,11 @@ class Processor implements Manager {
   Iterable<MethodMirror> _findDeclaredFunctions() =>
       serverMetadata.loadedLibraries
           .expand((LibraryMirror ldef) => ldef.declarations.values)
-          .where((d) => d is MethodMirror);
+          .whereType<MethodMirror>();
 
   Iterable<ClassMirror> _findDeclaredClasses() => serverMetadata.loadedLibraries
       .expand((LibraryMirror ldef) => ldef.declarations.values)
-      .where((d) => d is ClassMirror);
+      .whereType<ClassMirror>();
 
   InterceptorInvoker _wrapInterceptor(InterceptorMetadata interceptor,
       [ObjectMirror owner]) {
